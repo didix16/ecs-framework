@@ -1,0 +1,27 @@
+// Uncomment properties and remove from build command line once this issue https://github.com/rollup/plugins/issues/287 is resolved
+{
+    "compilerOptions": {
+      
+        //"rootDir": "src",
+        "moduleResolution": "node",
+        "target": "es5",
+        "module":"es2015",
+        "lib": ["es2015", "es2016", "es2017", "dom"],
+        "strict": false,
+        "sourceMap": true,
+        //"declaration": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        //"declarationDir": "dist/types",
+        //"outDir": "dist/lib",
+        "skipLibCheck": false,
+        /*"typeRoots": [
+            "dist/@types",
+            "node_modules/@types"
+        ]*/
+    },
+    "include": [
+      "src"
+    ]
+  }

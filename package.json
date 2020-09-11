@@ -1,0 +1,63 @@
+{
+  "name": "ecs-framework",
+  "version": "1.0.0",
+  "description": "A simple Entity Component System architecture framework",
+  "main": "dist/ecs.umd.js",
+  "module": "dist/ecs.es5.js",
+  "typings": "dist/types/ecs.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run watch",
+    "watch": "rollup -c rollup.config.ts -w",
+    "dist": "npm run docs && npm run build",
+    "build": "tsc --rootDir 'src' --outDir 'dist/lib' --module commonjs --declaration --declarationDir 'dist/@types' && rollup -c rollup.config.ts",
+    "docs": "typedoc --out ./docs --target es6 --theme minimal --mode file src",
+    "clean": "rimraf dist",
+    "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "prebuild": "npm run clean"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/didix16/ecs-framework.git"
+  },
+  "keywords": [
+    "ECS",
+    "gamedevelopment"
+  ],
+  "author": {
+    "name": "didix16",
+    "url": "https://github.com/didix16"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/didix16/ecs-framework/issues"
+  },
+  "homepage": "https://github.com/didix16/ecs-framework#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-typescript": "^5.0.2",
+    "@rollup/plugin-url": "^5.0.1",
+    "@types/lodash": "^4.14.161",
+    "@types/uuid": "^8.3.0",
+    "lodash.camelcase": "^4.3.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.26.9",
+    "rollup-plugin-license": "^2.2.0",
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "rollup-plugin-sourcemaps": "^0.6.2",
+    "ts-node": "^9.0.0",
+    "tslint": "^6.1.3",
+    "tslint-config-standard": "^9.0.0",
+    "typedoc": "^0.19.0",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "uuid": "^8.3.0",
+    "lodash": "^4.17.20"
+  }
+}
