@@ -1,5 +1,5 @@
 {
-  "name": "ecs-framework",
+  "name": "jecs-framework",
   "version": "1.0.0",
   "description": "A simple Entity Component System architecture framework",
   "main": "dist/ecs.umd.js",

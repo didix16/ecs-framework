@@ -17774,6 +17774,31 @@
             }
             return false;
         };
+        /**
+         * @since 1.1.0
+         *
+         * Load in-memory a component from file or DDBB
+         *
+         * - "file:path/to/component.js" -> Loads component from file
+         * - "db:databaseName.componentName" -> connects to a MongoDB and load component from components table
+         */
+        ComponentManager.prototype.load = function (from) {
+            throw new Error("not implemented yet");
+        };
+        /**
+         * @since 1.1.0
+         * @param path
+         */
+        ComponentManager.prototype.loadFromFile = function (path) {
+            return new Component({});
+        };
+        /**
+         * @since 1.1.0
+         * @param urlConnection
+         */
+        ComponentManager.prototype.loadFromDDBB = function (urlConnection) {
+            return new Component({});
+        };
         /* Events */
         ComponentManager.EV_COMPONENT_CREATED = 'component.created';
         ComponentManager.EV_COMPONENT_DELETED = 'component.deleted';

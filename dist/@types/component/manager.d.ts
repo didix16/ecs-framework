@@ -56,4 +56,23 @@ export declare class ComponentManager extends EventEmitter {
      * @param name
      */
     deleteComponent(name: string): boolean;
+    /**
+     * @since 1.1.0
+     *
+     * Load in-memory a component from file or DDBB
+     *
+     * - "file:path/to/component.js" -> Loads component from file
+     * - "db:databaseName.componentName" -> connects to a MongoDB and load component from components table
+     */
+    load(from: string): Component;
+    /**
+     * @since 1.1.0
+     * @param path
+     */
+    protected loadFromFile(path: string): Component;
+    /**
+     * @since 1.1.0
+     * @param urlConnection
+     */
+    protected loadFromDDBB(urlConnection: string): Component;
 }

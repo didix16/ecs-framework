@@ -106,6 +106,40 @@ var ComponentManager = /** @class */ (function (_super) {
         }
         return false;
     };
+    /**
+     * @since 1.1.0
+     *
+     * Load in-memory a component from file or DDBB
+     *
+     * - "file:path/to/component.js" -> Loads component from file
+     * - "db:databaseName.componentName" -> connects to a MongoDB and load component from components table
+     */
+    ComponentManager.prototype.load = function (from) {
+        throw new Error("not implemented yet");
+        if (from.startsWith("file:")) {
+            return this.loadFromFile(from.substr(5));
+        }
+        else if (from.startsWith("db:")) {
+            return this.loadFromDDBB(from.substr(3));
+        }
+        else {
+            throw new Error("Undefined load protocol");
+        }
+    };
+    /**
+     * @since 1.1.0
+     * @param path
+     */
+    ComponentManager.prototype.loadFromFile = function (path) {
+        return new component_1.Component({});
+    };
+    /**
+     * @since 1.1.0
+     * @param urlConnection
+     */
+    ComponentManager.prototype.loadFromDDBB = function (urlConnection) {
+        return new component_1.Component({});
+    };
     /* Events */
     ComponentManager.EV_COMPONENT_CREATED = 'component.created';
     ComponentManager.EV_COMPONENT_DELETED = 'component.deleted';
