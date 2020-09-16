@@ -3,6 +3,11 @@ import {EventEmitter} from 'events';
 import {Entity} from '../entity/entity';
 import _ from 'lodash';
 
+/**
+ * Helper function that gets a system instance by its name
+ * If system does not exists, just returns null
+ * @param id 
+ */
 export function system(name:string): System {
 
     return SystemManager.getInstance().find(name);

@@ -270,6 +270,12 @@ export class ECS extends EventEmitter {
         return this;
     }
 
+    /**
+     * Removes an entity from a system
+     * The entity will be dettached if entity and system passed exsits
+     * @param system 
+     * @param entity 
+     */
     public dettachEntity(system: string, entity: string | Entity): this {
 
         if (! this.sm.exists(system)){

@@ -2,11 +2,20 @@ import {Component, IComponent} from './component';
 import {EventEmitter} from 'events';
 import _ from 'lodash';
 
+/**
+ * Helper function that gets a component instance by its name
+ * If component does not exists, just returns null
+ * @param name 
+ */
 export function component(name:string): Component {
 
     return ComponentManager.getInstance().find(name);
 }
 
+/**
+ * Helper function that builds an exisiting component by its name and initial data
+ * @param id 
+ */
 export function build(name:string, data?: IComponent): Component {
 
     return ComponentManager.getInstance().build(name, data);
@@ -76,12 +85,15 @@ export class ComponentManager extends EventEmitter {
 
     /**
      * A factory method for build existing components with given data instead of default data
+     * If component does not exists then an error is thrown
      * @param name 
      * @param data 
      */
     public build(name:string, data?: IComponent): Component {
 
-        let comp = this.find(name);
+        let comp: Component = this.find(name);
+
+        if (!comp) throw new Error(`The component ${name} doest not exists!`);
 
         if (_.isUndefined(data) || _.isEmpty(data)) return comp;
 
